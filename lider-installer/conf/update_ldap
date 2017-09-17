@@ -43,6 +43,7 @@ dn: ou=Ahenkler,$BASE_DN
 objectClass: top
 objectClass: organizationalUnit
 ou: Ahenkler
+description: pardusDeviceGroup
 EOL
 
 ldapadd -x -D "$LDAP_DATABASE_ADMIN_DN" -w $LDAP_DATABASE_ADMIN_PASSWORD << EOL
