@@ -3,25 +3,13 @@
 dn: cn=liderahenk,cn=schema,cn=config
 objectClass: olcSchemaConfig
 cn: liderahenk
-olcAttributeTypes: {0}( 2.4.2.42.1.9.7.9.0.9.7.2 NAME 'liderServiceAddress' SU
- P description SINGLE-VALUE )
-olcAttributeTypes: {1}( 2.4.2.42.1.9.7.9.0.9.7.1 NAME 'liderPrivilege' SUP des
- cription )
-olcAttributeTypes: {2}( 2.4.2.42.1.9.7.9.0.9.7.3 NAME 'liderDeviceObjectClassN
- ame' SUP objectClass SINGLE-VALUE )
-olcAttributeTypes: {3}( 2.4.2.42.1.9.7.9.0.9.7.4 NAME 'liderUserObjectClassNam
- e' SUP objectClass SINGLE-VALUE )
-olcAttributeTypes: {4}( 2.4.2.42.1.9.7.9.0.9.7.5 NAME 'liderUserIdentityAttrib
- uteName' SUP description SINGLE-VALUE )
-olcAttributeTypes: {5}( 2.4.2.42.1.9.7.9.0.9.7.6 NAME 'liderAhenkOwnerAttribut
- eName' SUP description SINGLE-VALUE )
-olcObjectClasses: {0}( 2.4.2.42.1.9.7.8.1.1.6.1 NAME 'pardusLiderAhenkConfig' 
- STRUCTURAL MUST ( liderServiceAddress $ cn ) MAY ( liderAhenkOwnerAttributeNa
- me $ liderDeviceObjectClassName $ liderUserIdentityAttributeName $ liderUserO
- bjectClassName ) )
-olcObjectClasses: {1}( 2.4.2.42.1.9.7.8.1.1.6.4 NAME 'pardusAccount' AUXILIARY
-  MUST ( uid $ userPassword ) )
-olcObjectClasses: {2}( 2.4.2.42.1.9.7.8.1.1.6.3 NAME 'pardusDevice' AUXILIARY 
- MUST ( cn $ uid $ userPassword $ owner ) )
-olcObjectClasses: {3}( 2.4.2.42.1.9.7.8.1.1.6.2 NAME 'pardusLider' AUXILIARY M
- AY liderPrivilege )
+olcAttributeTypes: {0}( 2.4.2.42.1.9.7.9.0.9.7.2 NAME 'liderServiceAddress' SUP description SINGLE-VALUE )
+olcAttributeTypes: {1}( 2.4.2.42.1.9.7.9.0.9.7.1 NAME 'liderPrivilege' SUP description )
+olcAttributeTypes: {2}( 2.4.2.42.1.9.7.9.0.9.7.3 NAME 'liderDeviceObjectClassName' SUP objectClass SINGLE-VALUE )
+olcAttributeTypes: {3}( 2.4.2.42.1.9.7.9.0.9.7.4 NAME 'liderUserObjectClassName' SUP objectClass SINGLE-VALUE )
+olcAttributeTypes: {4}( 2.4.2.42.1.9.7.9.0.9.7.5 NAME 'liderUserIdentityAttributeName' SUP description SINGLE-VALUE )
+olcAttributeTypes: {5}( 2.4.2.42.1.9.7.9.0.9.7.6 NAME 'liderAhenkOwnerAttributeName' SUP description SINGLE-VALUE )
+olcObjectClasses: {0}( 2.4.2.42.1.9.7.8.1.1.6.1 NAME 'pardusLiderAhenkConfig' STRUCTURAL MUST ( liderServiceAddress $ cn ) MAY ( liderAhenkOwnerAttributeName $ liderDeviceObjectClassName $ liderUserIdentityAttributeName $ liderUserObjectClassName ) )
+olcObjectClasses: {1}( 2.4.2.42.1.9.7.8.1.1.6.4 NAME 'pardusAccount' AUXILIARY MUST ( uid $ userPassword ) )
+olcObjectClasses: {2}( 2.4.2.42.1.9.7.8.1.1.6.3 NAME 'pardusDevice' AUXILIARY MUST ( cn $ uid $ userPassword $ owner ) )
+olcObjectClasses: {3}( 2.4.2.42.1.9.7.8.1.1.6.2 NAME 'pardusLider' AUXILIARY MAY liderPrivilege )
