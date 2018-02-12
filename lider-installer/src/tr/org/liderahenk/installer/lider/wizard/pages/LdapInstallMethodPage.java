@@ -103,8 +103,8 @@ public class LdapInstallMethodPage extends WizardPage implements ILdapPage {
 										// be updated on file selection
 
 		// Copy mariadb.deb to /tmp and bring it as default deb in page
-		InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("slapd_default_2_4_40.deb");
-		File ldapDeb = LiderAhenkUtils.streamToFile(inputStream, "slapd_default_2_4_40.deb");
+		InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("slapd_2.4.44+dfsg-5+deb9u1_amd64.deb");
+		File ldapDeb = LiderAhenkUtils.streamToFile(inputStream, "slapd_2.4.44+dfsg-5+deb9u1_amd64.deb");
 		txtFileName.setText(ldapDeb.getAbsolutePath());
 		
 		// Set file to config as array of bytes

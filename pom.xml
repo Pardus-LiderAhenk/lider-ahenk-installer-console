@@ -25,7 +25,9 @@
 		<orbit.repo.url>http://download.eclipse.org/tools/orbit/downloads/drops/R20151118145958/repository</orbit.repo.url>
 		<mars.update.repo.url>http://download.eclipse.org/eclipse/updates/4.5</mars.update.repo.url>
 		<p2.maven.plugin.local.repo.url>http://localhost:8080/site/installer</p2.maven.plugin.local.repo.url>
-		<babel.update.repo.url>http://download.eclipse.org/technology/babel/update-site/R0.14.1/neon/</babel.update.repo.url>
+		<!--<babel.update.repo.url>http://download.eclipse.org/technology/babel/update-site/R0.14.1/mars/</babel.update.repo.url>--> 
+		<babel.update.repo.url>http://archive.eclipse.org/technology/babel/update-site/R0.14.0/neon/</babel.update.repo.url>
+
 	</properties>
 
 	<repositories>
@@ -55,6 +57,7 @@
 			<layout>p2</layout>
 		</repository>
 	</repositories>
+
 
 	<licenses>
 		<license>

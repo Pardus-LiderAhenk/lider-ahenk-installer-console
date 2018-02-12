@@ -46,12 +46,12 @@ public class LiderInstallationStatus extends WizardPage
 
 	private static final String CREATE_TEMP_DIR = "sudo rm -rf /tmp/lider-temp && mkdir -p /tmp/lider-temp";
 	private static final String UPDATE_PACKAGE_LIST = "sudo apt-get -y --force-yes update";
-	private static final String INSTALL_DEPENDENCIES = "sudo apt-get install -y --force-yes openjdk-7-jdk sshpass rsync nmap";
+	private static final String INSTALL_DEPENDENCIES = "sudo apt-get install -y --force-yes openjdk-8-jdk sshpass rsync nmap";
 	private static final String EXTRACT_FILE = "sudo tar -xzvf {0} --directory /opt/";
 	private static final String DOWNLOAD_PACKAGE = "sudo wget --output-document=/tmp/{0} {1}";
 	private static final String START_KARAF = "sudo /opt/{0}/bin/start";
 	private static final String INSTALL_WRAPPER = "/opt/{0}/bin/client -r 50 'wrapper:install'";
-	private static final String UPDATE_KARAF_CONF = "sudo sed -i '/set.default.JAVA_HOME/c\\set.default.JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/jre' /opt/{0}/etc/karaf-wrapper.conf";
+	private static final String UPDATE_KARAF_CONF = "sudo sed -i '/set.default.JAVA_HOME/c\\set.default.JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre' /opt/{0}/etc/karaf-wrapper.conf";
 	private static final String LINK_KARAF_SERVICE = "sudo ln -fs /opt/{0}/bin/karaf-service /etc/init.d/ && sudo update-rc.d karaf-service defaults";
 	private static final String UPDATE_SERVICES = "sudo update-rc.d karaf-service defaults";
 	private static final String MOVE_FILE = "sudo mv -f /tmp/{0} {1}";

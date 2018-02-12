@@ -108,8 +108,8 @@ public class AhenkInstallationMethodPage extends WizardPage {
 		});
 
 		// Copy ahenk.deb to /tmp and bring it as default deb in page
-		InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("ahenk_1.0_amd64.deb");
-		File ahenkDeb = LiderAhenkUtils.streamToFile(inputStream, "ahenk_1.0_amd64.deb");
+		InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("ahenk_1.0.0-6_all.deb");
+		File ahenkDeb = LiderAhenkUtils.streamToFile(inputStream, "ahenk_1.0.0-6_all.deb");
 		fileDialogText.setText(ahenkDeb.getAbsolutePath());
 
 		// Set file to config as array of bytes

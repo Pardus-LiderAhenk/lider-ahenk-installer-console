@@ -27,7 +27,7 @@ echo "Started server."
 # Build project
 echo "Building lider-console project..."
 cd "$PRJ_ROOT_PATH"
-mvn clean install -DskipTests
+mvn clean install -DskipTests -Dtycho.disableP2Mirrors=true
 echo "lider-ahenk-installer project build successfully."
 
 # After exporting products, kill jetty server process

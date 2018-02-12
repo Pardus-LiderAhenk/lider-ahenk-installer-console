@@ -411,7 +411,7 @@ public class LiderClusterInstallationStatus extends WizardPage
 			printMessage(Messages.getString("SUCCESSFULLY_UPDATED_PACKAGE_LIST_OF_", clusterNode.getNodeIp()), display);
 
 			printMessage(Messages.getString("INSTALLING_DEPENDENCIES_AT_", clusterNode.getNodeIp()), display);
-			manager.execCommand("apt-get install -y --force-yes openjdk-7-jdk sshpass rsync nmap", new Object[] {});
+			manager.execCommand("apt-get install -y --force-yes openjdk-8-jdk sshpass rsync nmap", new Object[] {});
 			printMessage(Messages.getString("SUCCESSFULLY_INSTALLED_DEPENDENCIES_AT_", clusterNode.getNodeIp()),
 					display);
 			logger.info("Successfully installed dependencies at {}", new Object[] { clusterNode.getNodeIp() });
@@ -530,7 +530,9 @@ public class LiderClusterInstallationStatus extends WizardPage
 
 			printMessage(Messages.getString("MODIFYING_KARAF_WRAPPER_CONF_AT_", clusterNode.getNodeIp()), display);
 			manager.execCommand(
-					"sed -i '/set.default.JAVA_HOME/c\\set.default.JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/jre' /opt/{0}/etc/karaf-wrapper.conf",
+					"sed -i '/set.default.JAVA_HOME/c\\set.default.JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre' /opt/{0}/etc/karaf-wrapper.conf",
+					//"sed -i '/set.default.JAVA_HOME/c\\set.default.JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/jre' /opt/{0}/etc/karaf-wrapper.conf",
+					
 					new Object[] { PropertyReader.property("lider.package.name") });
 			printMessage(Messages.getString("SUCCESSFULLY_MODIFIED_KARAF_WRAPPER_CONF_AT_", clusterNode.getNodeIp()),
 					display);

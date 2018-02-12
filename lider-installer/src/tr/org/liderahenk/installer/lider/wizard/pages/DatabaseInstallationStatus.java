@@ -115,22 +115,29 @@ public class DatabaseInstallationStatus extends WizardPage
 						printMessage(Messages.getString("INSTALLING_PREREQUISITES"));
 						SetupUtils.executeCommand(config.getDatabaseIp(), config.getDatabaseAccessUsername(),
 								config.getDatabaseAccessPasswd(), config.getDatabasePort(),
+//								config.getDatabaseAccessKeyPath(), config.getDatabaseAccessPassphrase(),
+//								"sudo apt-get -y --force-yes install software-properties-common");
 								config.getDatabaseAccessKeyPath(), config.getDatabaseAccessPassphrase(),
-								"sudo apt-get -y --force-yes install software-properties-common");
+								"sudo apt-get install software-properties-common dirmngr");
 						printMessage(Messages.getString("SUCCESSFULLY_INSTALLED_PREREQUISITES"));
 
 						printMessage(Messages.getString("ADDING_KEY_SERVER"));
 						SetupUtils.executeCommand(config.getDatabaseIp(), config.getDatabaseAccessUsername(),
 								config.getDatabaseAccessPasswd(), config.getDatabasePort(),
+//								config.getDatabaseAccessKeyPath(), config.getDatabaseAccessPassphrase(),
+//								"sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db");
 								config.getDatabaseAccessKeyPath(), config.getDatabaseAccessPassphrase(),
-								"sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db");
+								"sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xF1656F24C74CD1D8");
+
 						printMessage(Messages.getString("SUCCESSFULLY_ADDED_KEY_SERVER"));
 
 						printMessage(Messages.getString("ADDING_NEW_REPOSITORY"));
 						SetupUtils.executeCommand(config.getDatabaseIp(), config.getDatabaseAccessUsername(),
 								config.getDatabaseAccessPasswd(), config.getDatabasePort(),
+//								config.getDatabaseAccessKeyPath(), config.getDatabaseAccessPassphrase(),
+//								"sudo echo 'deb [arch=amd64,i386] ftp://ftp.ulak.net.tr/pub/MariaDB/repo/10.1/debian jessie main' > /etc/apt/sources.list.d/galera.list");
 								config.getDatabaseAccessKeyPath(), config.getDatabaseAccessPassphrase(),
-								"sudo echo 'deb [arch=amd64,i386] ftp://ftp.ulak.net.tr/pub/MariaDB/repo/10.1/debian jessie main' > /etc/apt/sources.list.d/galera.list");
+								"sudo echo 'deb [arch=amd64] ftp://ftp.ulak.net.tr/pub/MariaDB/repo/10.2/debian stretch main' > /etc/apt/sources.list.d/galera.list");						
 						printMessage(Messages.getString("SUCCESSFULLY_ADDED_NEW_REPOSITORY"));
 
 						printMessage(Messages.getString("UPDATING_PACKAGE_LIST"));
@@ -160,8 +167,10 @@ public class DatabaseInstallationStatus extends WizardPage
 						printMessage(Messages.getString("INSTALLING_MARIADB_SERVER"));
 						SetupUtils.executeCommand(config.getDatabaseIp(), config.getDatabaseAccessUsername(),
 								config.getDatabaseAccessPasswd(), config.getDatabasePort(),
+//								config.getDatabaseAccessKeyPath(), config.getDatabaseAccessPassphrase(),
+//								"apt-get -y --force-yes install mariadb-server-10.1");
 								config.getDatabaseAccessKeyPath(), config.getDatabaseAccessPassphrase(),
-								"apt-get -y --force-yes install mariadb-server-10.1");
+								"apt-get -y --force-yes install mariadb-server-10.2");
 						printMessage(Messages.getString("SUCCESSFULLY_INSTALLED_MARIADB_SERVER"));
 
 						// Grant privileges

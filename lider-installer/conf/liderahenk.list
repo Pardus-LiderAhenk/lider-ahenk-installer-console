@@ -1,1 +1,1 @@
-deb http://depo.pardus.org.tr/lider-ahenk/la-stable yenikusak main
+deb [arch=amd64] http://repo.liderahenk.org stable main

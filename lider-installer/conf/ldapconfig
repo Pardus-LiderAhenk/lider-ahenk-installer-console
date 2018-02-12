@@ -46,7 +46,7 @@ service slapd restart
 ldapadd -x -f /tmp/liderahenk.ldif -D "$CNCONFIGADMINDN" -w $CNCONFIGADMINPASSWD
 
 ADMINDN="cn=$ADMINCN,$BASEDN"
-ADMINGROUPDN="cn=Administrators,ou=Groups,$BASEDN"
+ADMINGROUPDN="cn=adminGroups,ou=Groups,$BASEDN"
 DEFAULTPOLICYDN="cn=Default,ou=Policies,$BASEDN"
 ADMINPASSWDHASH=$(slappasswd -h {SSHA} -s $ADMINPASSWD)
 DBPATH=/var/ldaps/$CNAME
@@ -165,7 +165,7 @@ ou: Policies
 dn: $ADMINGROUPDN
 objectClass: top
 objectClass: groupOfNames
-cn: Administrators
+cn: adminGroups
 member: $ADMINDN
 
 dn: $DEFAULTPOLICYDN
