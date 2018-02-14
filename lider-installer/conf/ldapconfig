@@ -9,6 +9,7 @@ ADMINCN="#ADMINCN"
 ADMINPASSWD="#ADMINPASSWD"
 CNCONFIGADMINDN="#CNCONFIGADMINDN"
 CNCONFIGADMINPASSWD="#CNCONFIGADMINPASSWD"
+LIDERAHENK_SCHEMA_PATH="/tmp/liderahenk.ldif"
 
 #Varsayilan sifre secret
 NEW_PASSWD=$(slappasswd -h {SSHA} -s $CNCONFIGADMINPASSWD)
@@ -43,7 +44,8 @@ EOL
 
 service slapd restart
 # liderahenk semasini yukler
-ldapadd -x -f /tmp/liderahenk.ldif -D "$CNCONFIGADMINDN" -w $CNCONFIGADMINPASSWD
+#ldapadd -x -f /tmp/liderahenk.ldif -D "$CNCONFIGADMINDN" -w $CNCONFIGADMINPASSWD
+ldapadd -x -D "$CNCONFIGADMINDN" -f $LIDERAHENK_SCHEMA_PATH -w $CNCONFIGADMINPASSWD
 
 ADMINDN="cn=$ADMINCN,$BASEDN"
 ADMINGROUPDN="cn=adminGroups,ou=Groups,$BASEDN"
@@ -130,7 +132,7 @@ olcOverlay: ppolicy
 olcPPolicyDefault: $DEFAULTPOLICYDN
 EOL
 
-service slapd restart
+systemctl restart slapd.service
 
 ldapadd -x -D "$ADMINDN" -w $ADMINPASSWD << EOL
 #Root Organization
@@ -177,7 +179,7 @@ pwdAttribute: userPassword
 pwdLockout: TRUE
 EOL
 
-service slapd restart
+systemctl restart slapd.service
 
 ldapadd -x -D "$ADMINDN" -w $ADMINPASSWD << EOL
 dn: cn=liderAhenkConfig,$BASEDN
@@ -200,7 +202,7 @@ liderPrivilege: [REPORT:ALL]
 liderPrivilege: [TASK:#BASEDN:ALL]
 EOL
 
-service slapd restart
+systemctl restart slapd.service
 
 #bitti
 exit 0 

@@ -33,7 +33,8 @@ fi
 
 
 # Install liderahenk schema ldif
-ldapadd -x -f $LIDERAHENK_SCHEMA_PATH -D "$CNCONFIGADMINDN" -w $CNCONFIGADMINPASSWD
+#ldapadd -x -f $LIDERAHENK_SCHEMA_PATH -D "$CNCONFIGADMINDN" -w $CNCONFIGADMINPASSWD
+ldapadd -x -D "$CNCONFIGADMINDN" -f $LIDERAHENK_SCHEMA_PATH -w $CNCONFIGADMINPASSWD
 
 service slapd restart
 
@@ -71,7 +72,7 @@ liderPrivilege: [TASK:$BASE_DN:ALL]
 liderPrivilege: [REPORT:ALL]
 EOL
 
-service slapd restart
+systemctl restart slapd.service
 
 #bitti
 exit 0

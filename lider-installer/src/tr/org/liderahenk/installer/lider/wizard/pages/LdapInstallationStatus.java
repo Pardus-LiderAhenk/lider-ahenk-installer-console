@@ -12,6 +12,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.ProgressBar;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.internal.about.ConfigurationLogDefaultSection;
 
 import tr.org.liderahenk.installer.lider.config.LiderSetupConfig;
 import tr.org.liderahenk.installer.lider.i18n.Messages;
@@ -303,7 +304,31 @@ public class LdapInstallationStatus extends WizardPage implements ILdapPage, Ins
 		String debconfAdminPwd = PropertyReader.property("ldap.debconf.adminpw") + " " + config.getLdapRootPassword();
 		String debconfGeneratedPwd = PropertyReader.property("ldap.debconf.generated.password") + " "
 				+ config.getLdapRootPassword();
-		return new String[] { debconfPwd, debconfPwdAgain, debconfAdminPwd, debconfGeneratedPwd };
+//		String debconfLdapDomain = PropertyReader.property("ldap.debconf.domain") + " " + config.getLdapBaseDn();
+//		
+	    String dn = config.getLdapBaseDn().replace("dc=", "");
+	    String ndn = dn.replace("dc=", "");
+	    String LdapBaseDn = ndn.replace(",", ".");
+	    System.out.println(LdapBaseDn);
+		
+//		text = config.getLdapBaseDn().replace(, text);
+		String debconfLdapDomain = PropertyReader.property("ldap.debconf.domain") + " " + LdapBaseDn;
+		String debconfLdapOrganization = PropertyReader.property("ldap.debconf.organization") + " " + config.getLdapOrgName();
+//		String debconfAcl = PropertyReader.property("ldap.debconf.acl");
+//		String debconfPurgeDB = PropertyReader.property("ldap.debconf.purgedb");
+//		String debconfLdapPpolicy = PropertyReader.property("ldap.debconf.ppolicy");
+//		String debconfLdapConfig = PropertyReader.property("ldap.debconf.config");
+//		String debconfMoveDB = PropertyReader.property("ldap.debconf.movedb");
+//		String debconfSelectDB = PropertyReader.property("ldap.debconf.selectdb");
+//		String debconfBackupDB = PropertyReader.property("ldap.debconf.backupdb");
+//		String debconfLdapConf = PropertyReader.property("ldap.debconf.conf");
+//		String debconfDbDump = PropertyReader.property("ldap.debconf.dbdump");
+//		String debconfPwdMatch = PropertyReader.property("ldap.debconf.pwdmatch");
+//		
+		
+		return new String[] { debconfPwd, debconfPwdAgain, debconfAdminPwd, debconfGeneratedPwd, debconfLdapDomain, debconfLdapOrganization };
+//				, debconfAcl, debconfPurgeDB, debconfLdapConfig, debconfMoveDB,
+//				debconfBackupDB, debconfLdapConf, debconfDbDump, debconfPwdMatch};
 	}
 
 	@Override
