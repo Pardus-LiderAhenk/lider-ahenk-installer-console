@@ -118,7 +118,7 @@ public class DatabaseInstallationStatus extends WizardPage
 //								config.getDatabaseAccessKeyPath(), config.getDatabaseAccessPassphrase(),
 //								"sudo apt-get -y --force-yes install software-properties-common");
 								config.getDatabaseAccessKeyPath(), config.getDatabaseAccessPassphrase(),
-								"sudo apt-get install software-properties-common dirmngr");
+								"sudo apt-get -y --force-yes install software-properties-common dirmngr");
 						printMessage(Messages.getString("SUCCESSFULLY_INSTALLED_PREREQUISITES"));
 
 						printMessage(Messages.getString("ADDING_KEY_SERVER"));
