@@ -94,7 +94,7 @@ log_rate_limit: 100
 ##   - "example.org"
 ##
 hosts:
-  - "#SERVICE_NAME"
+  - "im.liderahenk.org"
 
 ##
 ## route_subdomains: Delegate subdomains to other XMPP servers.
@@ -313,7 +313,7 @@ ldap_filter: "(|(objectClass=pardusDevice)(&(objectClass=pardusAccount)(objectCl
 ## To use both anonymous and internal authentication:
 ##
 host_config:
-   "#SERVICE_NAME":
+   "im.liderahenk.org":
      auth_method:
        - internal
        - ldap

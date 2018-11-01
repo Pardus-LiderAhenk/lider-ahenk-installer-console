@@ -57,8 +57,7 @@ log_rate_limit: 100
 ##   - "example.org"
 ##
 hosts:
-  - "localhost"
-  - "#SERVICE_NAME"
+  - "im.liderahenk.org"
 
 ###   ===============
 ###   LISTENING PORTS
@@ -180,7 +179,7 @@ ldap_filter: "(|(objectClass=pardusDevice)(&(objectClass=pardusAccount)(objectCl
 ## To use both anonymous and internal authentication:
 ##
 host_config:
-   "#SERVICE_NAME":
+   "im.liderahenk.org":
      auth_method:
        - internal
        - ldap
